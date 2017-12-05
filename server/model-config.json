@@ -36,6 +36,7 @@
     "public": false
   },
   "OzanUserCredential": {
+<<<<<<< HEAD
     "dataSource": "ozan",
     "public": true
   },
@@ -45,6 +46,17 @@
   },
   "OzanLibrary": {
     "dataSource": "ozan",
+=======
+    "dataSource": "db",
+    "public": true
+  },
+  "OzanOrder": {
+    "dataSource": "db",
+    "public": true
+  },
+  "OzanLibrary": {
+    "dataSource": "db",
+>>>>>>> develop
     "public": true
   }
 }

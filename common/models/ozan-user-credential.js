@@ -1,5 +1,6 @@
 'use strict';
 
+<<<<<<< HEAD
 module.exports = function (Ozanusercredential) {
     let request = require('request');
     let app = require('../../server/server');
@@ -43,5 +44,8 @@ module.exports = function (Ozanusercredential) {
         });
     }
 
+=======
+module.exports = function(Ozanusercredential) {
+>>>>>>> develop
 
 };

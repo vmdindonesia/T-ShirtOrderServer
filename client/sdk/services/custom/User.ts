@@ -10,15 +10,15 @@ import { JSONSearchParams } from '../core/search.params';
 import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Rx';
-import { OzanUserCredential } from '../../models/OzanUserCredential';
+import { User } from '../../models/User';
 import { SocketConnection } from '../../sockets/socket.connections';
 
 
 /**
- * Api services for the `OzanUserCredential` model.
+ * Api services for the `User` model.
  */
 @Injectable()
-export class OzanUserCredentialApi extends BaseLoopBackApi {
+export class UserApi extends BaseLoopBackApi {
 
   constructor(
     @Inject(Http) protected http: Http,
@@ -34,7 +34,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   /**
    * Find a related item by id for accessTokens.
    *
-   * @param {any} id OzanUserCredential id
+   * @param {any} id User id
    *
    * @param {any} fk Foreign key for accessTokens
    *
@@ -44,13 +44,13 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `OzanUserCredential` object.)
+   * This usually means the response is a `User` object.)
    * </em>
    */
   public findByIdAccessTokens(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/:id/accessTokens/:fk";
+    "/Users/:id/accessTokens/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -64,7 +64,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   /**
    * Delete a related item by id for accessTokens.
    *
-   * @param {any} id OzanUserCredential id
+   * @param {any} id User id
    *
    * @param {any} fk Foreign key for accessTokens
    *
@@ -77,7 +77,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   public destroyByIdAccessTokens(id: any, fk: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/:id/accessTokens/:fk";
+    "/Users/:id/accessTokens/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -91,7 +91,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   /**
    * Update a related item by id for accessTokens.
    *
-   * @param {any} id OzanUserCredential id
+   * @param {any} id User id
    *
    * @param {any} fk Foreign key for accessTokens
    *
@@ -105,13 +105,13 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `OzanUserCredential` object.)
+   * This usually means the response is a `User` object.)
    * </em>
    */
   public updateByIdAccessTokens(id: any, fk: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PUT";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/:id/accessTokens/:fk";
+    "/Users/:id/accessTokens/:fk";
     let _routeParams: any = {
       id: id,
       fk: fk
@@ -125,9 +125,9 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries accessTokens of OzanUserCredential.
+   * Queries accessTokens of User.
    *
-   * @param {any} id OzanUserCredential id
+   * @param {any} id User id
    *
    * @param {object} filter 
    *
@@ -137,13 +137,13 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `OzanUserCredential` object.)
+   * This usually means the response is a `User` object.)
    * </em>
    */
   public getAccessTokens(id: any, filter: LoopBackFilter = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/:id/accessTokens";
+    "/Users/:id/accessTokens";
     let _routeParams: any = {
       id: id
     };
@@ -157,7 +157,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   /**
    * Creates a new instance in accessTokens of this model.
    *
-   * @param {any} id OzanUserCredential id
+   * @param {any} id User id
    *
    * @param {object} data Request data.
    *
@@ -169,13 +169,13 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `OzanUserCredential` object.)
+   * This usually means the response is a `User` object.)
    * </em>
    */
   public createAccessTokens(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/:id/accessTokens";
+    "/Users/:id/accessTokens";
     let _routeParams: any = {
       id: id
     };
@@ -190,7 +190,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   /**
    * Deletes all accessTokens of this model.
    *
-   * @param {any} id OzanUserCredential id
+   * @param {any} id User id
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -201,7 +201,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   public deleteAccessTokens(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "DELETE";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/:id/accessTokens";
+    "/Users/:id/accessTokens";
     let _routeParams: any = {
       id: id
     };
@@ -212,9 +212,9 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts accessTokens of OzanUserCredential.
+   * Counts accessTokens of User.
    *
-   * @param {any} id OzanUserCredential id
+   * @param {any} id User id
    *
    * @param {object} where Criteria to match model instances
    *
@@ -229,7 +229,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   public countAccessTokens(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/:id/accessTokens/count";
+    "/Users/:id/accessTokens/count";
     let _routeParams: any = {
       id: id
     };
@@ -253,13 +253,13 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `OzanUserCredential` object.)
+   * This usually means the response is a `User` object.)
    * </em>
    */
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials";
+    "/Users";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -272,7 +272,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   /**
    * Patch attributes for a model instance and persist it into the data source.
    *
-   * @param {any} id OzanUserCredential id
+   * @param {any} id User id
    *
    * @param {object} data Request data.
    *
@@ -284,13 +284,13 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `OzanUserCredential` object.)
+   * This usually means the response is a `User` object.)
    * </em>
    */
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/:id";
+    "/Users/:id";
     let _routeParams: any = {
       id: id
     };
@@ -330,7 +330,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   public login(credentials: any, include: any = 'user', rememberMe: boolean = true, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/login";
+    "/Users/login";
     let _routeParams: any = {};
     let _postBody: any = {
       credentials: credentials
@@ -366,7 +366,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   public logout(customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/logout";
+    "/Users/logout";
     let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};
@@ -379,7 +379,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   /**
    * Trigger user's identity verification with configured verifyOptions
    *
-   * @param {any} id OzanUserCredential id
+   * @param {any} id User id
    *
    * @param {object} data Request data.
    *
@@ -394,7 +394,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   public verify(id: any, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/:id/verify";
+    "/Users/:id/verify";
     let _routeParams: any = {
       id: id
     };
@@ -422,7 +422,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   public confirm(uid: any, token: any, redirect: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/confirm";
+    "/Users/confirm";
     let _routeParams: any = {};
     let _postBody: any = {};
     let _urlParams: any = {};
@@ -449,7 +449,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   public resetPassword(options: any, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/reset";
+    "/Users/reset";
     let _routeParams: any = {};
     let _postBody: any = {
       options: options
@@ -477,7 +477,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   public changePassword(oldPassword: any, newPassword: any, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/change-password";
+    "/Users/change-password";
     let _routeParams: any = {};
     let _postBody: any = {
       data: {
@@ -506,7 +506,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   public setPassword(newPassword: any, customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/reset-password";
+    "/Users/reset-password";
     let _routeParams: any = {};
     let _postBody: any = {
       data: {
@@ -519,43 +519,9 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   }
 
   /**
-<<<<<<< HEAD
-   * <em>
-         * (The remote method definition does not provide any description.)
-         * </em>
-   *
-   * @param {object} data Request data.
-   *
-   * This method expects a subset of model properties as request parameters.
-   *
-   * @returns {object[]} An empty reference that will be
-   *   populated with the actual data once the response is returned
-   *   from the server.
-   *
-   * <em>
-   * (The remote method definition does not provide any description.
-   * This usually means the response is a `OzanUserCredential` object.)
-   * </em>
-   */
-  public LoginUser(params: any, customHeaders?: Function): Observable<any> {
-    let _method: string = "POST";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/LoginUser";
-    let _routeParams: any = {};
-    let _postBody: any = {
-      params: params
-    };
-    let _urlParams: any = {};
-    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
-    return result;
-  }
-
-  /**
-=======
->>>>>>> develop
    * Creates a new instance in accessTokens of this model.
    *
-   * @param {any} id OzanUserCredential id
+   * @param {any} id User id
    *
    * @param {object} data Request data.
    *
@@ -567,13 +533,13 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
    *
    * <em>
    * (The remote method definition does not provide any description.
-   * This usually means the response is a `OzanUserCredential` object.)
+   * This usually means the response is a `User` object.)
    * </em>
    */
   public createManyAccessTokens(id: any, data: any[] = [], customHeaders?: Function): Observable<any> {
     let _method: string = "POST";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/OzanUserCredentials/:id/accessTokens";
+    "/Users/:id/accessTokens";
     let _routeParams: any = {
       id: id
     };
@@ -586,8 +552,8 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   }
   /**
    * @ngdoc method
-   * @name sdk.OzanUserCredential#getCurrent
-   * @methodOf sdk.OzanUserCredential
+   * @name sdk.User#getCurrent
+   * @methodOf sdk.User
    *
    * @description
    *
@@ -600,7 +566,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
    */
   public getCurrent(filter: LoopBackFilter = {}): Observable<any> {
     let _method: string = "GET";
-    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/OzanUserCredentials" + "/:id";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() + "/Users" + "/:id";
     let id: any = this.auth.getCurrentUserId();
     if (id == null)
     id = '__anonymous__';
@@ -612,8 +578,8 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   }
   /**
    * Get data of the currently logged user that was returned by the last
-   * call to {@link sdk.OzanUserCredential#login} or
-   * {@link sdk.OzanUserCredential#getCurrent}. Return null when there
+   * call to {@link sdk.User#login} or
+   * {@link sdk.User#getCurrent}. Return null when there
    * is no user logged in or the data of the current user were not fetched
    * yet.
    *
@@ -624,7 +590,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   }
   /**
    * Get data of the currently logged access tokern that was returned by the last
-   * call to {@link sdk.OzanUserCredential#login}
+   * call to {@link sdk.User#login}
    *
    * @returns object An AccessToken instance.
    */
@@ -632,7 +598,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
     return this.auth.getToken();
   }
   /**
-   * @name sdk.OzanUserCredential#isAuthenticated
+   * @name sdk.User#isAuthenticated
    *
    * @returns {boolean} True if the current user is authenticated (logged in).
    */
@@ -641,7 +607,7 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
   }
 
   /**
-   * @name sdk.OzanUserCredential#getCurrentId
+   * @name sdk.User#getCurrentId
    *
    * @returns object Id of the currently logged-in user or null.
    */
@@ -651,9 +617,9 @@ export class OzanUserCredentialApi extends BaseLoopBackApi {
 
   /**
    * The name of the model represented by this $resource,
-   * i.e. `OzanUserCredential`.
+   * i.e. `User`.
    */
   public getModelName() {
-    return "OzanUserCredential";
+    return "User";
   }
 }

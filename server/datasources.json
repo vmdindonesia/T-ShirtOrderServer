@@ -3,6 +3,7 @@
     "name": "db",
     "connector": "memory",
     "file": "mydata.json"
+<<<<<<< HEAD
   },
 
   "ozan": {
@@ -14,4 +15,7 @@
     "password": "",
     "user": "root"
    }
+=======
+  }
+>>>>>>> develop
 }
