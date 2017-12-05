@@ -1,6 +1,17 @@
 {
   "db": {
     "name": "db",
-    "connector": "memory"
-  }
+    "connector": "memory",
+    "file": "mydata.json"
+  },
+
+  "ozan": {
+    "name": "ozan",
+    "connector": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "database": "ozanDatabase",
+    "password": "",
+    "user": "root"
+   }
 }

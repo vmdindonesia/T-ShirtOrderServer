@@ -1,0 +1,29 @@
+{
+  "ids": {
+    "User": 1,
+    "AccessToken": 5,
+    "ACL": 1,
+    "RoleMapping": 1,
+    "Role": 1,
+    "OzanUserCredential": 2,
+    "OzanOrder": 1,
+    "OzanLibrary": 1
+  },
+  "models": {
+    "User": {},
+    "AccessToken": {
+      "wxU6lQz9YwmTF8MsEkdA8LBuuBMsiwCQNSOKoDHhTE4xGV06jBlvFQBpW72Cwces": "{\"id\":\"wxU6lQz9YwmTF8MsEkdA8LBuuBMsiwCQNSOKoDHhTE4xGV06jBlvFQBpW72Cwces\",\"ttl\":1209600,\"created\":\"2017-12-05T19:20:45.472Z\",\"userId\":1}",
+      "0tze5qFw8x2GaDZhtJzUGKBHi9nokd5mk1BlQQc1pSCt5Y1hWgUDdzffrbbg1rLy": "{\"id\":\"0tze5qFw8x2GaDZhtJzUGKBHi9nokd5mk1BlQQc1pSCt5Y1hWgUDdzffrbbg1rLy\",\"ttl\":1209600,\"created\":\"2017-12-05T19:22:12.631Z\",\"userId\":1}",
+      "6YZWRKuYtK84D32UigMIADQ00SWreh7pnSEdCCXEKpn21T8h4Dchm3MRYGW0HSJ7": "{\"id\":\"6YZWRKuYtK84D32UigMIADQ00SWreh7pnSEdCCXEKpn21T8h4Dchm3MRYGW0HSJ7\",\"ttl\":1209600,\"created\":\"2017-12-05T19:23:13.153Z\",\"userId\":1}",
+      "vtt4xx62eamw5XMxwRhZCz32xeVxsRCFZ1QEAJHybfaJKfEJJ8bKwPvueQFTiMl3": "{\"id\":\"vtt4xx62eamw5XMxwRhZCz32xeVxsRCFZ1QEAJHybfaJKfEJJ8bKwPvueQFTiMl3\",\"ttl\":1209600,\"created\":\"2017-12-05T19:23:43.494Z\",\"userId\":1}"
+    },
+    "ACL": {},
+    "RoleMapping": {},
+    "Role": {},
+    "OzanUserCredential": {
+      "1": "{\"realm\":\"Muhammad Fauzan\",\"alamat\":\"Jakarta\",\"phoneNumber\":\"085217171717\",\"jobPosition\":\"Mahasiswa\",\"corporateName\":\"Esa Unggul\",\"corporatePhoneNumber\":\"02159457887\",\"emailCorporate\":\"esaunggul@gmail.com\",\"username\":\"ozan\",\"password\":\"$2a$10$0REs.7RyOSYhnHCXaAm4ausUGUtQa3NDOCHbv8KtR3o9AQUG2VcKu\",\"email\":\"ozan@gmail.com\",\"emailVerified\":\"false\",\"roleUser\":\"user\",\"id\":1}"
+    },
+    "OzanOrder": {},
+    "OzanLibrary": {}
+  }
+}
