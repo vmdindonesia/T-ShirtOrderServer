@@ -34,5 +34,17 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "OzanUserCredential": {
+    "dataSource": "db",
+    "public": true
+  },
+  "OzanOrder": {
+    "dataSource": "db",
+    "public": true
+  },
+  "OzanLibrary": {
+    "dataSource": "db",
+    "public": true
   }
 }
