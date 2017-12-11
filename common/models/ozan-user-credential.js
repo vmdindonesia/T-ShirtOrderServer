@@ -1,6 +1,5 @@
 'use strict';
 
-<<<<<<< HEAD
 module.exports = function (Ozanusercredential) {
     let request = require('request');
     let app = require('../../server/server');
@@ -26,26 +25,21 @@ module.exports = function (Ozanusercredential) {
             }
         });
 
-    // Ozanusercredential.LoginUser = LoginUser;
-
     Ozanusercredential.LoginUser = function (params, options, cb) {
-        console.log(params, 'Params Find');
+        console.log(params, 'Login Data');
         Ozanusercredential.login({
             username: params.username,
             password: params.password
-        }, function (err, token) {
+        }, function (error, token) {
             console.log(token);
-            if (err) {
-                cb(err);
-                console.log(err, 'Errornya')
+            if (error) {
+                cb(error);
+                console.log(error.statusCode, 'Errornya')
             } else {
                 cb(null, token);
             }
         });
     }
 
-=======
-module.exports = function(Ozanusercredential) {
->>>>>>> develop
 
 };

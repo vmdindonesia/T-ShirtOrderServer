@@ -14,39 +14,28 @@
     ]
   },
   "User": {
-    "dataSource": "ozan"
+    "dataSource": "db"
   },
   "AccessToken": {
-    "dataSource": "ozan",
+    "dataSource": "db",
     "public": false
   },
   "ACL": {
-    "dataSource": "ozan",
+    "dataSource": "db",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "ozan",
+    "dataSource": "db",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "ozan",
+    "dataSource": "db",
     "public": false
   },
   "OzanUserCredential": {
-<<<<<<< HEAD
-    "dataSource": "ozan",
-    "public": true
-  },
-  "OzanOrder": {
-    "dataSource": "ozan",
-    "public": true
-  },
-  "OzanLibrary": {
-    "dataSource": "ozan",
-=======
     "dataSource": "db",
     "public": true
   },
@@ -56,7 +45,6 @@
   },
   "OzanLibrary": {
     "dataSource": "db",
->>>>>>> develop
     "public": true
   }
 }
