@@ -1,0 +1,32 @@
+{
+  "name": "OzanOrderProduct",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "idOrder": {
+      "type": "string"
+    },
+    "descriptionOrder": {
+      "type": "string"
+    },
+    "sizeOrder": {
+      "type": "string"
+    },
+    "QtyOrder": {
+      "type": "string"
+    },
+    "UnitPrice": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
