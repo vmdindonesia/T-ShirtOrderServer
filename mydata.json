@@ -1,17 +1,20 @@
 {
   "ids": {
     "User": 1,
-    "AccessToken": 30,
+    "AccessToken": 12,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "OzanUserCredential": 14,
-    "OzanOrder": 1,
-    "OzanLibrary": 1
+    "OzanUserCredential": 2,
+    "OzanOrder": 52,
+    "OzanLibrary": 28,
+    "OzanOrderProduct": 47
   },
   "models": {
     "User": {},
-    "AccessToken": {},
+    "AccessToken": {
+      "p74mZ7xcmryc5ZvvPGOT3mup6k6KAnwYloNe13BJ6vPYFHMbMHSmXHwMgCNAtY7S": "{\"id\":\"p74mZ7xcmryc5ZvvPGOT3mup6k6KAnwYloNe13BJ6vPYFHMbMHSmXHwMgCNAtY7S\",\"ttl\":1209600,\"created\":\"2017-12-14T15:39:00.508Z\",\"userId\":1}"
+    },
     "ACL": {},
     "RoleMapping": {},
     "Role": {},
@@ -21,6 +24,7 @@
       "13": "{\"realm\":\"aji\",\"alamat\":\"palmerah\",\"phoneNumber\":\"121092019\",\"jobPosition\":\"jakarta\",\"corporateName\":\"aji\",\"corporatePhoneNumber\":\"10921092\",\"emailCorporate\":\"aji@gmail.com\",\"username\":\"aji\",\"password\":\"$2a$10$Qlog0sKSfiVsYZjAWsF2XeDadwnzSjxdCjWFE8RxRHDseZmiXMhQi\",\"email\":\"adjie@gmail.com\",\"emailVerified\":\"true\",\"roleUser\":\"user\",\"id\":13}"
     },
     "OzanOrder": {},
-    "OzanLibrary": {}
+    "OzanLibrary": {},
+    "OzanOrderProduct": {}
   }
 }

@@ -3,5 +3,11 @@
     "name": "db",
     "connector": "memory",
     "file": "mydata.json"
+  },
+  "ozanstorage": {
+    "name": "ozanstorage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./storage"
   }
 }
