@@ -5,7 +5,7 @@
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "OzanUserCredential": 2,
+    "OzanUserCredential": 14,
     "OzanOrder": 1,
     "OzanLibrary": 1
   },
@@ -16,7 +16,9 @@
     "RoleMapping": {},
     "Role": {},
     "OzanUserCredential": {
-      "1": "{\"realm\":\"Muhammad Fauzan\",\"alamat\":\"Jakarta\",\"phoneNumber\":\"085217171717\",\"jobPosition\":\"Mahasiswa\",\"corporateName\":\"Esa Unggul\",\"corporatePhoneNumber\":\"02159457887\",\"emailCorporate\":\"esaunggul@gmail.com\",\"username\":\"ozan\",\"password\":\"$2a$10$0REs.7RyOSYhnHCXaAm4ausUGUtQa3NDOCHbv8KtR3o9AQUG2VcKu\",\"email\":\"ozan@gmail.com\",\"emailVerified\":\"false\",\"roleUser\":\"user\",\"id\":1}"
+      "1": "{\"realm\":\"Muhammad Fauzan\",\"alamat\":\"Jakarta\",\"phoneNumber\":\"085217171717\",\"jobPosition\":\"Mahasiswa\",\"corporateName\":\"Esa Unggul\",\"corporatePhoneNumber\":\"02159457887\",\"emailCorporate\":\"esaunggul@gmail.com\",\"username\":\"ozan\",\"password\":\"$2a$10$0REs.7RyOSYhnHCXaAm4ausUGUtQa3NDOCHbv8KtR3o9AQUG2VcKu\",\"email\":\"ozan@gmail.com\",\"emailVerified\":\"false\",\"roleUser\":\"user\",\"id\":1}",
+      "12": "{\"realm\":\"rendy\",\"alamat\":\"rendy\",\"phoneNumber\":\"33939\",\"jobPosition\":\"rendy\",\"corporateName\":\"rendy\",\"corporatePhoneNumber\":\"123\",\"emailCorporate\":\"rendy@gmail.com\",\"username\":\"rendy\",\"password\":\"$2a$10$rD/pjiu4pGYd31lnCPG36OkrVEqaLmKyiIg6vGJbA6k2ZSdSgTt/C\",\"email\":\"rend@gmail.com\",\"emailVerified\":\"true\",\"roleUser\":\"user\",\"id\":12}",
+      "13": "{\"realm\":\"aji\",\"alamat\":\"palmerah\",\"phoneNumber\":\"121092019\",\"jobPosition\":\"jakarta\",\"corporateName\":\"aji\",\"corporatePhoneNumber\":\"10921092\",\"emailCorporate\":\"aji@gmail.com\",\"username\":\"aji\",\"password\":\"$2a$10$Qlog0sKSfiVsYZjAWsF2XeDadwnzSjxdCjWFE8RxRHDseZmiXMhQi\",\"email\":\"adjie@gmail.com\",\"emailVerified\":\"true\",\"roleUser\":\"user\",\"id\":13}"
     },
     "OzanOrder": {},
     "OzanLibrary": {}
