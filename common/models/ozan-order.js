@@ -30,6 +30,7 @@ module.exports = function (Ozanorder) {
             }
         });
 
+
     Ozanorder.ozanBuying = function (params, options, cb) {
         console.log(params, 'Params');
         Ozanorder.create({
@@ -42,5 +43,53 @@ module.exports = function (Ozanorder) {
                 cb(null, dataGet);
             }
         });
+    }
+    /**
+     * function get data
+     */
+    Ozanorder.remoteMethod(
+        'ozangetBuying', {
+            accepts: [{
+                arg: 'params',
+                type: 'Object',
+                required: true,
+                http: { source: 'body' }
+            }, {
+                arg: "options",
+                type: "object",
+                http: "optionsFromRequest"
+            }],
+            returns: {
+                arg: 'ozangetBuying', type: 'array', root: true
+            },
+            http: {
+                path: '/ozangetBuying',
+                verb: 'get'
+            }
+        });
+
+
+    Ozanorder.ozangetBuying = function (params, options, cb) {
+        console.log(params.userId, 'Params');
+        Ozanorder.find({where: {userId: params.userId}}, function(err, accounts) { 
+            if (err) {
+                cb(err);
+                console.log(err, 'Errornya');
+            } else {
+                cb(null, accounts);
+            }
+         });
+        // Ozanorder.find({
+        //     where: {
+        //         userId: params.userId
+        //     }
+        // }, function (err, buyGet) {
+        //     if (err) {
+        //         cb(err);
+        //         console.log(err, 'Errornya');
+        //     } else {
+        //         cb(null, buyGet);
+        //     }
+        // });
     }
 };
