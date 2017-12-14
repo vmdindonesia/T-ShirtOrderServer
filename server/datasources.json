@@ -3,15 +3,5 @@
     "name": "db",
     "connector": "memory",
     "file": "mydata.json"
-  },
-  "ozanDB": {
-    "host": "localhost",
-    "port": 3306,
-    "url": "",
-    "database": "ozandatabase",
-    "password": "",
-    "name": "ozanDB",
-    "user": "root",
-    "connector": "mysql"
   }
 }
