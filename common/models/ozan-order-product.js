@@ -1,6 +1,7 @@
 'use strict';
 
-module.exports = function(Ozanlibrary) {
+module.exports = function(Ozanorderproduct) {
+
     let request = require('request');
     let app = require('../../server/server');
 
@@ -8,8 +9,8 @@ module.exports = function(Ozanlibrary) {
     /**
      * Create Data Order
      */
-    Ozanlibrary.remoteMethod(
-        'Ozanlibrary', {
+    Ozanorderproduct.remoteMethod(
+        'ozanProduct', {
             accepts: [{
                 arg: 'params',
                 type: 'Object',
@@ -21,17 +22,17 @@ module.exports = function(Ozanlibrary) {
                 http: "optionsFromRequest"
             }],
             returns: {
-                arg: 'Ozanlibrary', type: 'array', root: true
+                arg:  'ozanProduct', type: 'array', root: true
             },
             http: {
-                path: '/Ozanlibrary',
+                path: '/ozanProduct',
                 verb: 'post'
             }
         });
 
-        Ozanlibrary.Ozanlibrary = function (params, options, cb) {
+        Ozanorderproduct.ozanProduct = function (params, options, cb) {
             console.log(params, 'Params');
-            Ozanlibrary.create({
+            Ozanorderproduct.create({
                 params
             }, function (err, dataGet) {
                 if (err) {
@@ -42,5 +43,6 @@ module.exports = function(Ozanlibrary) {
                 }
             });
         }
+
 
 };
