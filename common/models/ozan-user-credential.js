@@ -1,9 +1,16 @@
 'use strict';
 
+
+
 module.exports = function (Ozanusercredential) {
+
     let request = require('request');
     let app = require('../../server/server');
 
+
+    /**
+     * Login Logic
+     */
     Ozanusercredential.remoteMethod(
         'LoginUser', {
             accepts: [{
@@ -75,4 +82,45 @@ module.exports = function (Ozanusercredential) {
         });
     }
 
+    /**
+     * 
+     * Registration Logic 
+     */
+
+    Ozanusercredential.remoteMethod(
+        'ozanRegistration', {
+            accepts: [{
+                arg: 'params',
+                type: 'Object',
+                required: true,
+                http: { source: 'body' }
+            }, {
+                arg: "options",
+                type: "object",
+                http: "optionsFromRequest"
+            }],
+            returns: {
+                arg: 'ozanRegistration', type: 'array', root: true
+            },
+            http: {
+                path: '/ozanRegistration',
+                verb: 'post'
+            }
+        });
+
+    Ozanusercredential.ozanRegistration = function (params, options, cb) {
+        console.log(params, 'Params');
+        Ozanusercredential.create(
+            params
+        ), function (error, data) {
+            console.log(data);
+            if (error) {
+                cb(error);
+                console.log(error.statusCode, 'Errornya')
+            } else {
+                cb(null, data);
+                return
+            }
+        };
+    }
 };
