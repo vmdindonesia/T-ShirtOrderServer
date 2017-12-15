@@ -45,6 +45,19 @@ module.exports = function (Ozanusercredential) {
                 console.log(error.statusCode, 'Errornya')
             } else {
                 cb(null, token);
+                console.log(token, 'TOKEN');
+                Ozanusercredential.findById(
+                    token.userId
+                ), function (error, dataUser) {
+                    console.log(data);
+                    if (error) {
+                        cb(error);
+                        console.log(error.statusCode, 'Errornya')
+                    } else {
+                        cb(null, dataUser);
+                        console.log(dataUser, 'DATA')
+                    }
+                };
             }
         });
     }
@@ -120,6 +133,48 @@ module.exports = function (Ozanusercredential) {
             } else {
                 cb(null, data);
                 return
+            }
+        };
+    }
+
+
+    /**
+     * 
+     * Find USer 
+     */
+
+    Ozanusercredential.remoteMethod(
+        'ozanFindUser', {
+            accepts: [{
+                arg: 'params',
+                type: 'Object',
+                required: true,
+                http: { source: 'body' }
+            }, {
+                arg: "options",
+                type: "object",
+                http: "optionsFromRequest"
+            }],
+            returns: {
+                arg: 'ozanFindUser', type: 'array', root: true
+            },
+            http: {
+                path: '/ozanFindUser',
+                verb: 'get'
+            }
+        });
+
+    Ozanusercredential.ozanFindUser = function (params, options, cb) {
+        console.log(params, 'Params FIND');
+        Ozanusercredential.findById(
+            params
+        ), function (error, dataUser) {
+            console.log(data);
+            if (error) {
+                cb(error);
+                console.log(error.statusCode, 'Errornya')
+            } else {
+                cb(null, dataUser);
             }
         };
     }
