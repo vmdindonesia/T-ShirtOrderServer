@@ -11,6 +11,7 @@ module.exports = function (Ozanusercredential) {
     /**
      * Login Logic
      */
+
     Ozanusercredential.remoteMethod(
         'LoginUser', {
             accepts: [{
@@ -37,27 +38,13 @@ module.exports = function (Ozanusercredential) {
         Ozanusercredential.login({
             username: params.username,
             password: params.password
-            //pake if else buat misahin admin, marketing dan user
         }, function (error, token) {
-            console.log(token);
             if (error) {
                 cb(error);
                 console.log(error.statusCode, 'Errornya')
             } else {
                 cb(null, token);
-                console.log(token, 'TOKEN');
-                Ozanusercredential.findById(
-                    token.userId
-                ), function (error, dataUser) {
-                    console.log(data);
-                    if (error) {
-                        cb(error);
-                        console.log(error.statusCode, 'Errornya')
-                    } else {
-                        cb(null, dataUser);
-                        console.log(dataUser, 'DATA')
-                    }
-                };
+                console.log(token, 'Data Login');
             }
         });
     }
@@ -84,7 +71,7 @@ module.exports = function (Ozanusercredential) {
         });
 
     Ozanusercredential.ozanLogout = function (params, options, cb) {
-        console.log(params.id, 'LogOut Data');
+        console.log(params.id, 'Logout Data');
         Ozanusercredential.logout(params.id, function (err, logout) {
             if (err) {
                 cb(err);
@@ -139,12 +126,11 @@ module.exports = function (Ozanusercredential) {
 
 
     /**
-     * 
-     * Find USer 
+     * Find User
      */
 
     Ozanusercredential.remoteMethod(
-        'ozanFindUser', {
+        'OzanFindUser', {
             accepts: [{
                 arg: 'params',
                 type: 'Object',
@@ -156,26 +142,19 @@ module.exports = function (Ozanusercredential) {
                 http: "optionsFromRequest"
             }],
             returns: {
-                arg: 'ozanFindUser', type: 'array', root: true
+                arg: 'OzanFindUser', type: 'array', root: true
             },
             http: {
-                path: '/ozanFindUser',
-                verb: 'get'
+                path: '/OzanFindUser',
+                verb: 'post'
             }
         });
 
-    Ozanusercredential.ozanFindUser = function (params, options, cb) {
-        console.log(params, 'Params FIND');
-        Ozanusercredential.findById(
-            params
-        ), function (error, dataUser) {
-            console.log(data);
-            if (error) {
-                cb(error);
-                console.log(error.statusCode, 'Errornya')
-            } else {
-                cb(null, dataUser);
-            }
-        };
+    Ozanusercredential.OzanFindUser = function (params, options, cb) {
+        console.log(params);
+        Ozanusercredential.findById(params.id, function (err, instance) {
+            cb(null, instance);
+            console.log(instance);
+        });
     }
 };
