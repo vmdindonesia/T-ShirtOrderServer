@@ -9,5 +9,15 @@
     "connector": "loopback-component-storage",
     "provider": "filesystem",
     "root": "./storage"
+  },
+  "ozanDB": {
+    "host": "serverprima.web.id",
+    "port": 3306,
+    "url": "",
+    "database": "serverpr_ozan",
+    "password": "5p0rt5c1ence",
+    "name": "ozanDB",
+    "user": "serverpr_ozan",
+    "connector": "mysql"
   }
 }
