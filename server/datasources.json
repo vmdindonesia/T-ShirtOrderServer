@@ -11,13 +11,13 @@
     "root": "./storage"
   },
   "ozanDB": {
-    "host": "serverprima.web.id",
+    "host": "localhost",
     "port": 3306,
     "url": "",
-    "database": "serverpr_ozan",
-    "password": "5p0rt5c1ence",
+    "database": "ozandatabase",
+    "password": "",
     "name": "ozanDB",
-    "user": "serverpr_ozan",
+    "user": "root",
     "connector": "mysql"
   }
 }
