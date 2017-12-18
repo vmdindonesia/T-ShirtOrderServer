@@ -32,7 +32,7 @@ module.exports = function(Ozanmenucredential) {
         Ozanmenucredential.find({
             where: {
                 roleUser: params.roleUser
-            }
+            }, order: 'title ASC'
         }, function (err, FindMenu) {
             if (err) {
                 cb(err);
