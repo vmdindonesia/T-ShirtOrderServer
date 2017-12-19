@@ -58,5 +58,23 @@
   "OzanMenuCredential": {
     "dataSource": "ozanDB",
     "public": true
+  },
+  "Ozanorder": {
+    "dataSource": "ozanDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Ozanorderproduct": {
+    "dataSource": "ozanDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Ozanlibrary": {
+    "dataSource": "ozanDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }
