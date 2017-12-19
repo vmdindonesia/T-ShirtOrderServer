@@ -8,7 +8,8 @@
     "OzanUserCredential": 2,
     "OzanOrder": 66,
     "OzanLibrary": 45,
-    "OzanOrderProduct": 64
+    "OzanOrderProduct": 64,
+    "Ozanorder": 4
   },
   "models": {
     "User": {},
@@ -48,6 +49,11 @@
     "OzanOrderProduct": {
       "62": "{\"params\":{\"descriptionOrder\":\"ASD\",\"sizeOrder\":\"M\",\"QtyOrder\":\"123\",\"UnitPrice\":\"123\",\"idorder\":65},\"id\":62}",
       "63": "{\"params\":{\"descriptionOrder\":\"AD\",\"sizeOrder\":\"L\",\"QtyOrder\":\"87\",\"UnitPrice\":\"878\",\"idorder\":65},\"id\":63}"
+    },
+    "Ozanorder": {
+      "1": "{\"params\":{\"userid\":\"string\",\"orderdate\":\"2017-12-19T19:18:21.529Z\",\"buyername\":\"string\",\"companyname\":\"string\",\"address\":\"string\",\"shippedto\":\"string\",\"invoiceto\":\"string\",\"vendorname\":\"string\",\"trackingno\":\"string\",\"deliverydate\":\"2017-12-19T19:18:21.529Z\",\"amount\":\"string\",\"totalamount\":\"string\",\"confirmto\":\"string\",\"productionstatus\":\"string\",\"status\":\"string\"},\"id\":1}",
+      "2": "{\"params\":{\"userid\":\"string\",\"orderdate\":\"2017-12-19T19:31:13.225Z\",\"buyername\":\"string\",\"companyname\":\"string\",\"address\":\"string\",\"shippedto\":\"string\",\"invoiceto\":\"string\",\"vendorname\":\"string\",\"trackingno\":\"string\",\"deliverydate\":\"2017-12-19T19:31:13.225Z\",\"amount\":\"string\",\"totalamount\":\"string\",\"confirmto\":\"string\",\"productionstatus\":\"string\",\"status\":\"string\"},\"id\":2}",
+      "3": "{\"params\":{\"userid\":\"string\",\"orderdate\":\"2017-12-19T19:31:13.225Z\",\"buyername\":\"string\",\"companyname\":\"string\",\"address\":\"string\",\"shippedto\":\"string\",\"invoiceto\":\"string\",\"vendorname\":\"string\",\"trackingno\":\"string\",\"deliverydate\":\"2017-12-19T19:31:13.225Z\",\"amount\":\"string\",\"totalamount\":\"string\",\"confirmto\":\"string\",\"productionstatus\":\"string\",\"status\":\"string\"},\"id\":3}"
     }
   }
 }

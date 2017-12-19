@@ -39,18 +39,6 @@
     "dataSource": "ozanDB",
     "public": true
   },
-  "OzanOrder": {
-    "dataSource": "ozanDB",
-    "public": true
-  },
-  "OzanLibrary": {
-    "dataSource": "ozanDB",
-    "public": true
-  },
-  "OzanOrderProduct": {
-    "dataSource": "ozanDB",
-    "public": true
-  },
   "OzanContainer": {
     "dataSource": "ozanStorage",
     "public": true
