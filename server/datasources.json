@@ -4,8 +4,8 @@
     "connector": "memory",
     "file": "mydata.json"
   },
-  "ozanstorage": {
-    "name": "ozanstorage",
+  "ozanStorage": {
+    "name": "ozanStorage",
     "connector": "loopback-component-storage",
     "provider": "filesystem",
     "root": "./storage"

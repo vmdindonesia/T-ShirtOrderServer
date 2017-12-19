@@ -1,6 +1,10 @@
 var server = require('./server');
 var ds = server.dataSources.ozanDB;
-var lbTables = ['OzanMenuCredential'];
+var lbTables = ['User','AccessToken','ACL',
+                'RoleMapping','Role','OzanUserCredential',
+                'OzanOrder','OzanMenuCredential',
+                'OzanOrderProduct'
+              ];
 ds.automigrate(lbTables, function(er) {
   if (er) throw er;
   console.log('Loopback tables [' - lbTables - '] created in ', ds.adapter.name);

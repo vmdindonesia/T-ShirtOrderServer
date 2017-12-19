@@ -52,7 +52,7 @@
     "public": true
   },
   "OzanContainer": {
-    "dataSource": "ozanstorage",
+    "dataSource": "ozanStorage",
     "public": true
   },
   "OzanMenuCredential": {
