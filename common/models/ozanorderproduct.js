@@ -1,7 +1,6 @@
 'use strict';
 
-module.exports = function(Ozanorderproduct) {
-
+module.exports = function (Ozanorderproduct) {
     let request = require('request');
     let app = require('../../server/server');
 
@@ -22,7 +21,7 @@ module.exports = function(Ozanorderproduct) {
                 http: "optionsFromRequest"
             }],
             returns: {
-                arg:  'ozanProduct', type: 'array', root: true
+                arg: 'ozanProduct', type: 'array', root: true
             },
             http: {
                 path: '/ozanProduct',
@@ -30,28 +29,26 @@ module.exports = function(Ozanorderproduct) {
             }
         });
 
-        Ozanorderproduct.ozanProduct = function (params, options, cb) {
-            console.log(params, 'DATA PRODUK');
-            var idorder = params.idorder
-            var descriptionorder = params.descriptionorder
-            var sizeorder = params.sizeorder
-            var qtyorder = params.qtyorder  
-            var unitprice = params.unitprice
-            Ozanorderproduct.create({
-                idorder,
-                descriptionorder,
-                sizeorder,
-                qtyorder,
-                unitprice
-            }, function (err, dataGet) {
-                if (err) {
-                    cb(err);
-                    console.log(err, 'Errornya');
-                } else {
-                    cb(null, dataGet);
-                }
-            });
-        }
-
-
+    Ozanorderproduct.ozanProduct = function (params, options, cb) {
+        console.log(params, 'DATA PRODUK');
+        var idorder = params.idorder
+        var descriptionorder = params.descriptionorder
+        var sizeorder = params.sizeorder
+        var qtyorder = params.qtyorder
+        var unitprice = params.unitprice
+        Ozanorderproduct.create({
+            idorder,
+            descriptionorder,
+            sizeorder,
+            qtyorder,
+            unitprice
+        }, function (err, dataGet) {
+            if (err) {
+                cb(err);
+                console.log(err, 'Errornya');
+            } else {
+                cb(null, dataGet);
+            }
+        });
+    }
 };

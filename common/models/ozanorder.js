@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = function (Ozanorder) {
-
     let request = require('request');
     let app = require('../../server/server');
 
@@ -28,6 +27,7 @@ module.exports = function (Ozanorder) {
 
     Ozanorder.ozanBuying = function (params, cb) {
         console.log(params, 'DATA BUYING');
+
         var userid = params.userid
         var buyername = params.buyername
         var companyname = params.companyname
@@ -42,6 +42,7 @@ module.exports = function (Ozanorder) {
         var confirmto = params.confirmto
         var productionstatus = params.productionstatus
         var status = params.status
+
         Ozanorder.create({
             userid,
             buyername,
@@ -107,17 +108,5 @@ module.exports = function (Ozanorder) {
                 cb(null, dataGet);
             }
         });
-        // Ozanorder.find({
-        //     where: {
-        //         userId: params.userId
-        //     }
-        // }, function (err, buyGet) {
-        //     if (err) {
-        //         cb(err);
-        //         console.log(err, 'Errornya');
-        //     } else {
-        //         cb(null, buyGet);
-        //     }
-        // });
     }
 };

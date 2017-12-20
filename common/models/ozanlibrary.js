@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(Ozanlibrary) {
+module.exports = function (Ozanlibrary) {
     let request = require('request');
     let app = require('../../server/server');
 
@@ -29,22 +29,20 @@ module.exports = function(Ozanlibrary) {
             }
         });
 
-        Ozanlibrary.Ozanlibrary = function (params, options, cb) {
-            console.log(params, 'Params');
-            var idorder = params.idorder
-            var namefile = params.namefile
-            Ozanlibrary.create({
-                idorder,
-                namefile
-            }, function (err, dataGet) {
-                if (err) {
-                    cb(err);
-                    console.log(err, 'Errornya');
-                } else {
-                    cb(null, dataGet);
-                }
-            });
-        }
-
+    Ozanlibrary.Ozanlibrary = function (params, options, cb) {
+        console.log(params, 'Params');
+        var idorder = params.idorder
+        var namefile = params.namefile
+        Ozanlibrary.create({
+            idorder,
+            namefile
+        }, function (err, dataGet) {
+            if (err) {
+                cb(err);
+                console.log(err, 'Errornya');
+            } else {
+                cb(null, dataGet);
+            }
+        });
+    }
 };
-

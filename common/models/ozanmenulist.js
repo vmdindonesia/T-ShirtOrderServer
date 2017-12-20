@@ -1,12 +1,12 @@
 'use strict';
 
-module.exports = function(Ozanmenucredential) {
+module.exports = function(Ozanmenulist) {
 
     /**
      * FindMenu
      */
 
-    Ozanmenucredential.remoteMethod(
+    Ozanmenulist.remoteMethod(
         'ozanFindMenu', {
             accepts: [{
                 arg: 'params',
@@ -27,11 +27,11 @@ module.exports = function(Ozanmenucredential) {
             }
         });
 
-    Ozanmenucredential.ozanFindMenu = function (params, options, cb) {
+    Ozanmenulist.ozanFindMenu = function (params, options, cb) {
         console.log(params, 'FindMenu Data');
-        Ozanmenucredential.find({
+        Ozanmenulist.find({
             where: {
-                roleUser: params.roleUser
+                roleuser: params.roleuser
             }, order: 'title ASC'
         }, function (err, FindMenu) {
             if (err) {

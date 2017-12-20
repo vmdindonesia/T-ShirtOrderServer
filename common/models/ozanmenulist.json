@@ -1,5 +1,5 @@
 {
-  "name": "Ozanorderproduct",
+  "name": "Ozanmenulist",
   "base": "PersistedModel",
   "idInjection": false,
   "options": {
@@ -7,84 +7,68 @@
   },
   "mysql": {
     "schema": "ozandatabase",
-    "table": "OzanOrderProduct"
+    "table": "OzanMenuList"
   },
   "properties": {
-    "idorder": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
-      "mysql": {
-        "columnName": "idOrder",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
-    "descriptionorder": {
+    "title": {
       "type": "String",
-      "required": false,
-      "length": 225,
+      "required": true,
+      "length": 20,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "descriptionOrder",
+        "columnName": "title",
         "dataType": "varchar",
-        "dataLength": 225,
+        "dataLength": 20,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false
     },
-    "sizeorder": {
+    "component": {
       "type": "String",
-      "required": false,
-      "length": 5,
+      "required": true,
+      "length": 30,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "sizeOrder",
+        "columnName": "component",
         "dataType": "varchar",
-        "dataLength": 5,
+        "dataLength": 30,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false
     },
-    "qtyorder": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
+    "icons": {
+      "type": "String",
+      "required": true,
+      "length": 15,
+      "precision": null,
+      "scale": null,
       "mysql": {
-        "columnName": "qtyOrder",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
+        "columnName": "icons",
+        "dataType": "varchar",
+        "dataLength": 15,
+        "dataPrecision": null,
+        "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false
     },
-    "unitprice": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": 12,
+    "roleuser": {
+      "type": "String",
+      "required": true,
+      "length": 20,
+      "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "unitPrice",
-        "dataType": "float",
-        "dataLength": null,
-        "dataPrecision": 12,
+        "columnName": "roleUser",
+        "dataType": "varchar",
+        "dataLength": 20,
+        "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"
       },

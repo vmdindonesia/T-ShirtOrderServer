@@ -1,5 +1,5 @@
 {
-  "name": "Ozanorderproduct",
+  "name": "Accesstoken",
   "base": "PersistedModel",
   "idInjection": false,
   "options": {
@@ -7,102 +7,86 @@
   },
   "mysql": {
     "schema": "ozandatabase",
-    "table": "OzanOrderProduct"
+    "table": "AccessToken"
   },
   "properties": {
-    "idorder": {
+    "ttl": {
       "type": "Number",
       "required": false,
       "length": null,
       "precision": 10,
       "scale": 0,
       "mysql": {
-        "columnName": "idOrder",
+        "columnName": "ttl",
         "dataType": "int",
         "dataLength": null,
         "dataPrecision": 10,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       },
-      "_selectable": false
+      "_selectable": true
     },
-    "descriptionorder": {
+    "scopes": {
       "type": "String",
       "required": false,
-      "length": 225,
+      "length": 65535,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "descriptionOrder",
-        "dataType": "varchar",
-        "dataLength": 225,
+        "columnName": "scopes",
+        "dataType": "text",
+        "dataLength": 65535,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       },
-      "_selectable": false
+      "_selectable": true
     },
-    "sizeorder": {
-      "type": "String",
+    "created": {
+      "type": "Date",
       "required": false,
-      "length": 5,
+      "length": null,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "sizeOrder",
-        "dataType": "varchar",
-        "dataLength": 5,
+        "columnName": "created",
+        "dataType": "datetime",
+        "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "N"
+        "nullable": "Y"
       },
-      "_selectable": false
+      "_selectable": true
     },
-    "qtyorder": {
+    "userid": {
       "type": "Number",
       "required": false,
       "length": null,
       "precision": 10,
       "scale": 0,
       "mysql": {
-        "columnName": "qtyOrder",
+        "columnName": "userId",
         "dataType": "int",
         "dataLength": null,
         "dataPrecision": 10,
         "dataScale": 0,
-        "nullable": "N"
+        "nullable": "Y"
       },
-      "_selectable": false
-    },
-    "unitprice": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": 12,
-      "scale": null,
-      "mysql": {
-        "columnName": "unitPrice",
-        "dataType": "float",
-        "dataLength": null,
-        "dataPrecision": 12,
-        "dataScale": null,
-        "nullable": "N"
-      },
-      "_selectable": false
+      "_selectable": true
     },
     "id": {
-      "type": "Number",
+      "type": "String",
       "id": true,
       "required": false,
-      "length": null,
-      "precision": 10,
-      "scale": 0,
+      "length": 255,
+      "precision": null,
+      "scale": null,
       "mysql": {
         "columnName": "id",
-        "dataType": "int",
-        "dataLength": null,
-        "dataPrecision": 10,
-        "dataScale": 0,
+        "dataType": "varchar",
+        "dataLength": 255,
+        "dataPrecision": null,
+        "dataScale": null,
         "nullable": "N"
       },
       "_selectable": false

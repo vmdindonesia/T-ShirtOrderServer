@@ -11,7 +11,7 @@
     "root": "./storage"
   },
   "ozanDB": {
-    "host": "localhost",
+    "host": "192.168.64.2",
     "port": 3306,
     "url": "",
     "database": "ozandatabase",

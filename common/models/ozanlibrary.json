@@ -7,40 +7,40 @@
   },
   "mysql": {
     "schema": "ozandatabase",
-    "table": "ozanlibrary"
+    "table": "OzanLibrary"
   },
   "properties": {
     "idorder": {
-      "type": "String",
+      "type": "Number",
       "required": false,
-      "length": 512,
-      "precision": null,
-      "scale": null,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
       "mysql": {
         "columnName": "idOrder",
-        "dataType": "varchar",
-        "dataLength": 512,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "Y"
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
+        "nullable": "N"
       },
-      "_selectable": true
+      "_selectable": false
     },
     "namefile": {
       "type": "String",
       "required": false,
-      "length": 512,
+      "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
         "columnName": "nameFile",
         "dataType": "varchar",
-        "dataLength": 512,
+        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
-        "nullable": "Y"
+        "nullable": "N"
       },
-      "_selectable": true
+      "_selectable": false
     },
     "id": {
       "type": "Number",

@@ -35,19 +35,17 @@
     "dataSource": "ozanDB",
     "public": false
   },
-  "OzanUserCredential": {
-    "dataSource": "ozanDB",
-    "public": true
-  },
   "OzanContainer": {
     "dataSource": "ozanStorage",
     "public": true
   },
-  "OzanMenuCredential": {
+  "Acl": {
     "dataSource": "ozanDB",
-    "public": true
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   },
-  "Ozanorder": {
+  "Ozanmenulist": {
     "dataSource": "ozanDB",
     "public": true,
     "$promise": {},
@@ -59,7 +57,31 @@
     "$promise": {},
     "$resolved": true
   },
+  "Accesstoken": {
+    "dataSource": "ozanDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
   "Ozanlibrary": {
+    "dataSource": "ozanDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Ozanorder": {
+    "dataSource": "ozanDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Ozanusercredential": {
+    "dataSource": "ozanDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Rolemapping": {
     "dataSource": "ozanDB",
     "public": true,
     "$promise": {},

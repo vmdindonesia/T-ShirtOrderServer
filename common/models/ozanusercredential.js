@@ -1,9 +1,6 @@
 'use strict';
 
-
-
 module.exports = function (Ozanusercredential) {
-
     let request = require('request');
     let app = require('../../server/server');
 
