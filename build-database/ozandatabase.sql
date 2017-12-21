@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 19 Des 2017 pada 17.19
--- Versi Server: 10.1.25-MariaDB
--- PHP Version: 7.1.7
+-- Host: localhost
+-- Generation Time: 20 Des 2017 pada 16.59
+-- Versi Server: 10.1.26-MariaDB
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `accesstoken`
+-- Struktur dari tabel `AccessToken`
 --
 
-CREATE TABLE `accesstoken` (
+CREATE TABLE `AccessToken` (
   `id` varchar(255) NOT NULL,
   `ttl` int(11) DEFAULT NULL,
   `scopes` text,
@@ -37,21 +37,19 @@ CREATE TABLE `accesstoken` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `accesstoken`
+-- Dumping data untuk tabel `AccessToken`
 --
 
-INSERT INTO `accesstoken` (`id`, `ttl`, `scopes`, `created`, `userId`) VALUES
-('84aPjOaLhQt3oOjOowikThbKJoEcVSiNYMk2xEhYT7KVDkdChU40BxDYbYjDTUBg', 1209600, NULL, '2017-12-19 14:09:41', 3),
-('Kny7NETz1m9KbE1IFBDqn5fsOWg3DMJgkEAjBsCVWNItbVxgyqjqtWaABfOFb2za', 1209600, NULL, '2017-12-19 13:28:05', 1),
-('zaW5yaiWuwM8ekFmLJAH9sGxVf2YM25N76YCvLKMfxtZsna0oeNxnL5Oizqwcmjf', 1209600, NULL, '2017-12-19 13:59:55', 3);
+INSERT INTO `AccessToken` (`id`, `ttl`, `scopes`, `created`, `userId`) VALUES
+('PwpjYhyK4eAIAHL519Jx9AwQ1hZaeSt5S8lnQMTmfhbLpz9xZlik08h0NnMWcSSX', 1209600, NULL, '2017-12-21 07:32:31', 3);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `acl`
+-- Struktur dari tabel `ACL`
 --
 
-CREATE TABLE `acl` (
+CREATE TABLE `ACL` (
   `id` int(11) NOT NULL,
   `model` varchar(512) DEFAULT NULL,
   `property` varchar(512) DEFAULT NULL,
@@ -64,111 +62,155 @@ CREATE TABLE `acl` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ozanmenucredential`
+-- Struktur dari tabel `OzanLibrary`
 --
 
-CREATE TABLE `ozanmenucredential` (
+CREATE TABLE `OzanLibrary` (
   `id` int(11) NOT NULL,
-  `title` varchar(512) DEFAULT NULL,
-  `component` varchar(512) DEFAULT NULL,
-  `icons` varchar(512) DEFAULT NULL,
-  `roleUser` varchar(512) DEFAULT NULL
+  `idOrder` int(11) NOT NULL,
+  `nameFile` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `ozanmenucredential`
+-- Dumping data untuk tabel `OzanLibrary`
 --
 
-INSERT INTO `ozanmenucredential` (`id`, `title`, `component`, `icons`, `roleUser`) VALUES
+INSERT INTO `OzanLibrary` (`id`, `idOrder`, `nameFile`) VALUES
+(10, 8, 'IMG_9c707896-fe9d-d1ce-59dc-7bd1c0fcc176.jpg'),
+(11, 8, 'IMG_9a65c7c8-ec87-8c4d-999e-af0216211721.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `OzanMenuList`
+--
+
+CREATE TABLE `OzanMenuList` (
+  `id` int(11) NOT NULL,
+  `title` varchar(20) NOT NULL,
+  `component` varchar(30) NOT NULL,
+  `icons` varchar(15) NOT NULL,
+  `roleUser` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `OzanMenuList`
+--
+
+INSERT INTO `OzanMenuList` (`id`, `title`, `component`, `icons`, `roleUser`) VALUES
 (1, 'Dashboard', 'HomePage', 'md-home', 'user'),
-(2, 'Order Online', 'OrderPage', 'md-cart', 'user'),
-(3, 'History Order', 'OrderdetailPage', 'md-list-box', 'user'),
-(4, 'Report Order', 'ReportorderPage', 'md-paper', 'management'),
-(5, 'Manage Order', 'ManageOrderPage', 'md-clock', 'admin'),
-(6, 'Member', 'MemberListPage', 'md-list-box', 'admin'),
-(7, 'Status Order', 'StatusOrderPage', 'md-print', 'management'),
-(8, 'Dashboard', 'HomePage', 'md-home', 'admin'),
-(9, 'Dashboard', 'HomaPage', 'md-home', 'management');
+(2, 'Dashboard', 'HomePage', 'md-home', 'admin'),
+(3, 'Dashboard', 'HomePage', 'md-home', 'management'),
+(4, 'Order Online', 'OrderPage', 'md-cart', 'user'),
+(5, 'History Order', 'OrderdetailPage', 'md-list-box', 'user'),
+(6, 'Report Order', 'ReportorderPage', 'md-print', 'management'),
+(7, 'Manage Order', 'ManageOrderPage', 'md-clock', 'admin'),
+(8, 'Member', 'MemberListPage', 'md-list-box', 'admin'),
+(9, 'Status Order', 'StatusOrderPage', 'md-print', 'management');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ozanorder`
+-- Struktur dari tabel `OzanOrder`
 --
 
-CREATE TABLE `ozanorder` (
+CREATE TABLE `OzanOrder` (
   `id` int(11) NOT NULL,
-  `userId` varchar(512) DEFAULT NULL,
-  `orderDate` datetime DEFAULT NULL,
-  `buyerName` varchar(512) DEFAULT NULL,
-  `companyName` varchar(512) DEFAULT NULL,
-  `address` varchar(512) DEFAULT NULL,
-  `shippedTo` varchar(512) DEFAULT NULL,
-  `invoiceTo` varchar(512) DEFAULT NULL,
-  `vendorName` varchar(512) DEFAULT NULL,
-  `trackingNo` varchar(512) DEFAULT NULL,
-  `deliveryDate` datetime DEFAULT NULL,
-  `amount` varchar(512) DEFAULT NULL,
-  `totalAmount` varchar(512) DEFAULT NULL,
-  `confirmTo` varchar(512) DEFAULT NULL,
-  `productionStatus` varchar(512) DEFAULT NULL,
-  `status` varchar(512) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `ozanorderproduct`
---
-
-CREATE TABLE `ozanorderproduct` (
-  `id` int(11) NOT NULL,
-  `idOrder` varchar(512) DEFAULT NULL,
-  `descriptionOrder` varchar(512) DEFAULT NULL,
-  `sizeOrder` varchar(512) DEFAULT NULL,
-  `QtyOrder` varchar(512) DEFAULT NULL,
-  `UnitPrice` varchar(512) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `ozanusercredential`
---
-
-CREATE TABLE `ozanusercredential` (
-  `id` int(11) NOT NULL,
-  `realm` varchar(512) DEFAULT NULL,
-  `alamat` varchar(512) DEFAULT NULL,
-  `phoneNumber` varchar(512) DEFAULT NULL,
-  `jobPosition` varchar(512) DEFAULT NULL,
-  `corporateName` varchar(512) DEFAULT NULL,
-  `corporatePhoneNumber` varchar(512) DEFAULT NULL,
-  `emailCorporate` varchar(512) DEFAULT NULL,
-  `username` varchar(512) DEFAULT NULL,
-  `password` varchar(512) DEFAULT NULL,
-  `email` varchar(512) DEFAULT NULL,
-  `emailVerified` varchar(512) DEFAULT NULL,
-  `roleUser` varchar(512) DEFAULT NULL,
-  `verificationToken` varchar(512) DEFAULT NULL
+  `userId` int(11) NOT NULL,
+  `orderDate` datetime NOT NULL,
+  `buyerName` varchar(50) NOT NULL,
+  `companyName` varchar(50) NOT NULL,
+  `address` varchar(225) NOT NULL,
+  `shippedTo` varchar(50) NOT NULL,
+  `invoiceTo` varchar(50) NOT NULL,
+  `vendorName` varchar(50) NOT NULL,
+  `trackingNo` varchar(20) NOT NULL,
+  `deliveryDate` datetime NOT NULL,
+  `amount` float NOT NULL,
+  `totalAmount` float NOT NULL,
+  `confirmTo` varchar(50) NOT NULL,
+  `productionStatus` tinyint(1) NOT NULL,
+  `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `ozanusercredential`
+-- Dumping data untuk tabel `OzanOrder`
 --
 
-INSERT INTO `ozanusercredential` (`id`, `realm`, `alamat`, `phoneNumber`, `jobPosition`, `corporateName`, `corporatePhoneNumber`, `emailCorporate`, `username`, `password`, `email`, `emailVerified`, `roleUser`, `verificationToken`) VALUES
-(1, 'Muhammad Fauzan', 'Srengseng', '08123456789', 'Owner', 'PT Alfa Indonesia', '02123456789', 'alfaind@gmail.com', 'ozan', '$2a$10$xu32QF5foePSNzgCoyAZKOCYGwQCS/XslOQmOGhjUmhotizuKrYgG', 'ozan@gmail.com', 'false', 'user', NULL),
-(2, 'Admin', 'Binus', '0898765432', 'admin', 'PT Putra Sukses Gemilang', '099999827', 'PSG@gmail.com', 'admin', '$2a$10$K0sF1EzCx/tWhACxxiPU8efHjkAHphx5kB0ixIUB62tD/AO6aPrV.', 'admin@gmail.com', 'false', 'admin', NULL),
-(3, 'Manager', 'Jakarta', '0728379273', 'Manager', 'PT Putra Sukses Gemilang', '0812356748', 'PSG@gmail.com', 'manager', '$2a$10$GUd0m63lor0ZwOqGdSyIAum1E6KMOkkDiya9rZPDnmOr6Dcct13X2', 'Manager@gmail.com', 'false', 'management', NULL);
+INSERT INTO `OzanOrder` (`id`, `userId`, `orderDate`, `buyerName`, `companyName`, `address`, `shippedTo`, `invoiceTo`, `vendorName`, `trackingNo`, `deliveryDate`, `amount`, `totalAmount`, `confirmTo`, `productionStatus`, `status`) VALUES
+(8, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'asd', 'asd', 'asd', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1),
+(9, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'hbhh', 'hhhh', 'hhh', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1),
+(10, 0, '0000-00-00 00:00:00', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '', 0, 0),
+(11, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'ok', 'oko', 'kok', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1),
+(12, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'ppp', 'ppp', 'ppp', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1),
+(13, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'kk', 'kk', 'kkk', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1),
+(14, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'yyy', 'yy', 'yy', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1),
+(15, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'iji', 'ji', 'jiji', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role`
+-- Struktur dari tabel `OzanOrderProduct`
 --
 
-CREATE TABLE `role` (
+CREATE TABLE `OzanOrderProduct` (
+  `id` int(11) NOT NULL,
+  `idOrder` int(11) NOT NULL,
+  `descriptionOrder` varchar(225) NOT NULL,
+  `sizeOrder` varchar(5) NOT NULL,
+  `qtyOrder` int(11) NOT NULL,
+  `unitPrice` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `OzanOrderProduct`
+--
+
+INSERT INTO `OzanOrderProduct` (`id`, `idOrder`, `descriptionOrder`, `sizeOrder`, `qtyOrder`, `unitPrice`) VALUES
+(12, 8, 'asd', '', 123, 123),
+(13, 8, 'asd', '', 123, 123),
+(14, 0, 'yyy', '', 88, 88),
+(15, 0, 'ii', '', 999, 99);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `OzanUserCredential`
+--
+
+CREATE TABLE `OzanUserCredential` (
+  `id` int(11) NOT NULL,
+  `realm` varchar(100) NOT NULL,
+  `address` varchar(225) NOT NULL,
+  `phoneNumber` int(20) NOT NULL,
+  `jobPosition` varchar(50) NOT NULL,
+  `corporateName` varchar(50) NOT NULL,
+  `corporatePhoneNumber` int(20) NOT NULL,
+  `emailCorporate` varchar(50) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(512) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `emailVerified` varchar(10) NOT NULL,
+  `roleUser` varchar(20) NOT NULL,
+  `verificationToken` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `OzanUserCredential`
+--
+
+INSERT INTO `OzanUserCredential` (`id`, `realm`, `address`, `phoneNumber`, `jobPosition`, `corporateName`, `corporatePhoneNumber`, `emailCorporate`, `username`, `password`, `email`, `emailVerified`, `roleUser`, `verificationToken`) VALUES
+(3, 'Muhammad Fauzan', 'Jakarta', 2147483647, 'Mahasiswa', 'PT. Putra Sukses Gemilang', 2147483647, 'psg@gmail.com', 'ozan', '$2a$10$aglhrAU1f9p3nVWGwIirHuVAUf1GsmWwCgzGFsBH5sW4rgSCjWShe', 'ozan@gmail.com', 'true', 'user', ''),
+(4, 'Management', 'Jakarta', 2147483647, 'Manager', 'PT. Putra Sukses Gemilang', 2147483647, 'psg@gmail.com', 'management', '$2a$10$8ldqPrK0EprTzglt8lpkCeqPXyiEwaplKwlrlv5T5npRZPlbvOv36', 'management@gmail.com', 'true', 'management', ''),
+(5, 'Admin', 'Jakarta', 2147483647, 'Admin', 'PT. Putera Sukses Gemilang', 2147483647, 'admin@gmail.com', 'admin', '$2a$10$PYEU1RqCwUQgcCkIMUzMk.Mt30IMyAfaZX1MoNUr7sCVlxeTBZWJi', 'admin@gmail.com', 'true', 'admin', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `Role`
+--
+
+CREATE TABLE `Role` (
   `id` int(11) NOT NULL,
   `name` varchar(512) NOT NULL,
   `description` varchar(512) DEFAULT NULL,
@@ -179,10 +221,10 @@ CREATE TABLE `role` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `rolemapping`
+-- Struktur dari tabel `RoleMapping`
 --
 
-CREATE TABLE `rolemapping` (
+CREATE TABLE `RoleMapping` (
   `id` int(11) NOT NULL,
   `principalType` varchar(512) DEFAULT NULL,
   `principalId` varchar(255) DEFAULT NULL,
@@ -192,10 +234,10 @@ CREATE TABLE `rolemapping` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Struktur dari tabel `User`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `User` (
   `id` int(11) NOT NULL,
   `realm` varchar(512) DEFAULT NULL,
   `username` varchar(512) DEFAULT NULL,
@@ -210,58 +252,64 @@ CREATE TABLE `user` (
 --
 
 --
--- Indexes for table `accesstoken`
+-- Indexes for table `AccessToken`
 --
-ALTER TABLE `accesstoken`
+ALTER TABLE `AccessToken`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `acl`
+-- Indexes for table `ACL`
 --
-ALTER TABLE `acl`
+ALTER TABLE `ACL`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ozanmenucredential`
+-- Indexes for table `OzanLibrary`
 --
-ALTER TABLE `ozanmenucredential`
+ALTER TABLE `OzanLibrary`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ozanorder`
+-- Indexes for table `OzanMenuList`
 --
-ALTER TABLE `ozanorder`
+ALTER TABLE `OzanMenuList`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ozanorderproduct`
+-- Indexes for table `OzanOrder`
 --
-ALTER TABLE `ozanorderproduct`
+ALTER TABLE `OzanOrder`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ozanusercredential`
+-- Indexes for table `OzanOrderProduct`
 --
-ALTER TABLE `ozanusercredential`
+ALTER TABLE `OzanOrderProduct`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `role`
+-- Indexes for table `OzanUserCredential`
 --
-ALTER TABLE `role`
+ALTER TABLE `OzanUserCredential`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `rolemapping`
+-- Indexes for table `Role`
 --
-ALTER TABLE `rolemapping`
+ALTER TABLE `Role`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `RoleMapping`
+--
+ALTER TABLE `RoleMapping`
   ADD PRIMARY KEY (`id`),
   ADD KEY `principalId` (`principalId`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `User`
 --
-ALTER TABLE `user`
+ALTER TABLE `User`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -269,45 +317,59 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `acl`
+-- AUTO_INCREMENT for table `ACL`
 --
-ALTER TABLE `acl`
+ALTER TABLE `ACL`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `ozanmenucredential`
+-- AUTO_INCREMENT for table `OzanLibrary`
 --
-ALTER TABLE `ozanmenucredential`
+ALTER TABLE `OzanLibrary`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `OzanMenuList`
+--
+ALTER TABLE `OzanMenuList`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
--- AUTO_INCREMENT for table `ozanorder`
+-- AUTO_INCREMENT for table `OzanOrder`
 --
-ALTER TABLE `ozanorder`
+ALTER TABLE `OzanOrder`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `OzanOrderProduct`
+--
+ALTER TABLE `OzanOrderProduct`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `OzanUserCredential`
+--
+ALTER TABLE `OzanUserCredential`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `Role`
+--
+ALTER TABLE `Role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `ozanorderproduct`
+-- AUTO_INCREMENT for table `RoleMapping`
 --
-ALTER TABLE `ozanorderproduct`
+ALTER TABLE `RoleMapping`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `ozanusercredential`
+-- AUTO_INCREMENT for table `User`
 --
-ALTER TABLE `ozanusercredential`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `role`
---
-ALTER TABLE `role`
+ALTER TABLE `User`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `rolemapping`
---
-ALTER TABLE `rolemapping`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
