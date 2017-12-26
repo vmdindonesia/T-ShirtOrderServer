@@ -109,4 +109,144 @@ module.exports = function (Ozanorder) {
             }
         });
     }
+
+    Ozanorder.remoteMethod(
+        'lookingdetailorder', {
+            accepts: [{
+                arg: 'params',
+                type: 'Object',
+                required: true,
+                http: { source: 'body' }
+            }, {
+                arg: "options",
+                type: "object",
+                http: "optionsFromRequest"
+            }],
+            returns: {
+                arg: 'lookingdetailorder', type: 'array', root: true
+            },
+            http: {
+                path: '/lookingdetailorder',
+                verb: 'post'
+            }
+        });
+
+    Ozanorder.lookingdetailorder = function (params, options, cb) {
+        console.log(params, 'Data');
+        Ozanorder.findById(
+           params.id
+        , function (err, data) {
+            if (err) {
+                cb(err);
+            } else {
+                cb(null, data);
+            }
+        });
+    }
+
+
+    Ozanorder.remoteMethod(
+        'changedetailorder', {
+            accepts: [{
+                arg: 'params',
+                type: 'Object',
+                required: true,
+                http: { source: 'body' }
+            }, {
+                arg: "options",
+                type: "object",
+                http: "optionsFromRequest"
+            }],
+            returns: {
+                arg: 'changedetailorder', type: 'array', root: true
+            },
+            http: {
+                path: '/changedetailorder',
+                verb: 'post'
+            }
+        });
+
+    Ozanorder.changedetailorder = function (params, options, cb) {
+        console.log(params, 'Data');
+        Ozanorder.findById(
+           params.id
+        , function (err, data) {
+            if (err) {
+                cb(err);
+            } else {
+                cb(null, data);
+            }
+        });
+    }
+
+    Ozanorder.remoteMethod(
+        'updatedataorder', {
+            accepts: {
+                arg: 'data',
+                type: 'Object',
+                http: { source: 'body' }
+            },
+            returns: {
+                type: 'array', root: true
+            },
+            http: {
+                path: '/updatedataorder',
+                verb: 'post'
+            }
+        });
+
+
+    Ozanorder.updatedataorder = function (params, cb) {
+        console.log(params, 'DATA BUYING');
+
+        var userid = params.userid
+        var buyername = params.buyername
+        var companyname = params.companyname
+        var address = params.address
+        var shippedto = params.shippedto
+        var invoiceto = params.invoiceto
+        var vendorname = params.vendorname
+        var trackingno = params.trackingno
+        var deliverydate = params.deliverydate
+        var amount = params.amount
+        var totalamount = params.totalamount
+        var confirmto = params.confirmto
+        var productionstatus = params.productionstatus
+        var status = params.status
+
+        Ozanorder.updateAll({
+            userid,
+            buyername,
+            companyname,
+            address,
+            shippedto,
+            invoiceto,
+            vendorname,
+            trackingno,
+            deliverydate,
+            amount,
+            totalamount,
+            confirmto,
+            productionstatus,
+            status
+        }, function (err, dataGet) {
+            if (err) {
+                cb(err);
+                console.log(err, 'Errornya');
+            } else {
+                cb(null, dataGet);
+                console.log(dataGet, 'DATA GET')
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
 };
