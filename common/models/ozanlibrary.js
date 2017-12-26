@@ -45,4 +45,45 @@ module.exports = function (Ozanlibrary) {
             }
         });
     }
+
+
+
+
+
+    Ozanlibrary.remoteMethod(
+        'lookingimageorder', {
+            accepts: [{
+                arg: 'params',
+                type: 'Object',
+                required: true,
+                http: { source: 'body' }
+            }, {
+                arg: "options",
+                type: "object",
+                http: "optionsFromRequest"
+            }],
+            returns: {
+                arg: 'lookingimageorder', type: 'array', root: true
+            },
+            http: {
+                path: '/lookingimageorder',
+                verb: 'post'
+            }
+        });
+
+    Ozanlibrary.lookingimageorder = function (params, options, cb) {
+        console.log(params, 'Params');
+        Ozanlibrary.find({
+            where : {
+                idorder : params.id
+            }
+        }, function (err, dataGet) {
+            if (err) {
+                cb(err);
+                console.log(err, 'Errornya');
+            } else {
+                cb(null, dataGet);
+            }
+        });
+    }
 };
