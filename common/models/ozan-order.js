@@ -71,14 +71,14 @@ module.exports = function (Ozanorder) {
 
     Ozanorder.ozangetBuying = function (params, options, cb) {
         console.log(params.userId, 'Params');
-        Ozanorder.find({where: {userId: params.userId}}, function(err, accounts) { 
+        Ozanorder.find({ where: { userId: params.userId } }, function (err, accounts) {
             if (err) {
                 cb(err);
                 console.log(err, 'Errornya');
             } else {
                 cb(null, accounts);
             }
-         });
+        });
 
     }
 
@@ -112,19 +112,20 @@ module.exports = function (Ozanorder) {
         Ozanorder.find({
             where: {
                 status: 2
-            }}, function(err, accounts) { 
+            }
+        }, function (err, accounts) {
             if (err) {
                 cb(err);
                 console.log(err, 'Errornya');
             } else {
                 cb(null, accounts);
             }
-         });
+        });
     }
 
-        /**
-     * function get data report Payed
-     */
+    /**
+ * function get data report Payed
+ */
     Ozanorder.remoteMethod(
         'ozanPayedReport', {
             accepts: [{
@@ -152,15 +153,36 @@ module.exports = function (Ozanorder) {
         Ozanorder.find({
             where: {
                 status: 3
-            }}, function(err, accounts) { 
+            }
+        }, function (err, accounts) {
             if (err) {
                 cb(err);
                 console.log(err, 'Errornya');
             } else {
                 cb(null, accounts);
             }
-         });
+        });
     }
 
+
+    /***
+     * Donwload PDF
+     */
+
+    Ozanorder.remoteMethod('download', {
+        returns: [
+            { arg: 'body', type: 'file', root: true },
+            { arg: 'Content-Type', type: 'string', http: { target: 'header' } }
+        ]
+    });
+
+    Ozanorder.download = function (cb) {
+        // getTheStreamBody() can be implemented by calling http.request() or fs.readFile() for example
+        getTheStreamBody(function (err, stream) {
+            if (err) return cb(err);
+            // stream can be any of: string, buffer, ReadableStream (e.g. http.IncomingMessage)
+            cb(null, stream, 'application/octet-stream');
+        });
+    };
 
 };

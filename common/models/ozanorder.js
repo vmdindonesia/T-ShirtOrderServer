@@ -249,4 +249,27 @@ module.exports = function (Ozanorder) {
 
 
 
+        /***
+     * Donwload PDF
+     */
+
+    Ozanorder.remoteMethod(
+        'download',
+        {
+            isStatic: true,
+            accepts: [
+                {arg: 'id', type: 'string', required: true}
+                  ],
+            returns: [
+                { arg: 'body', type: 'file', root: true },
+                { arg: 'Content-Type', type: 'string', http: { target: 'header' } }
+            ],
+            http: {path: '/:id/download', verb: 'get'}
+        }
+    );
+
+    Ozanorder.download = function download(userId, cb){
+        var reader = fs.createReadStream(__dirname + '/../document.pdf');
+        cb(null, reader, 'application/pdf');
+    };
 };
