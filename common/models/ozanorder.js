@@ -96,18 +96,19 @@ module.exports = function (Ozanorder) {
     Ozanorder.ozangetBuying = function (params, options, cb) {
         console.log(params.userid, 'Params');
         Ozanorder.find(
-            { where: 
-                { 
-                    userid: params.userid 
+            {
+                where:
+                    {
+                        userid: params.userid
+                    }
+            }, function (err, dataGet) {
+                if (err) {
+                    cb(err);
+                    console.log(err, 'Errornya');
+                } else {
+                    cb(null, dataGet);
                 }
-             }, function (err, dataGet) {
-            if (err) {
-                cb(err);
-                console.log(err, 'Errornya');
-            } else {
-                cb(null, dataGet);
-            }
-        });
+            });
     }
 
     Ozanorder.remoteMethod(
@@ -134,14 +135,14 @@ module.exports = function (Ozanorder) {
     Ozanorder.lookingdetailorder = function (params, options, cb) {
         console.log(params, 'Data');
         Ozanorder.findById(
-           params.id
-        , function (err, data) {
-            if (err) {
-                cb(err);
-            } else {
-                cb(null, data);
-            }
-        });
+            params.id
+            , function (err, data) {
+                if (err) {
+                    cb(err);
+                } else {
+                    cb(null, data);
+                }
+            });
     }
 
 
@@ -169,14 +170,14 @@ module.exports = function (Ozanorder) {
     Ozanorder.changedetailorder = function (params, options, cb) {
         console.log(params, 'Data');
         Ozanorder.findById(
-           params.id
-        , function (err, data) {
-            if (err) {
-                cb(err);
-            } else {
-                cb(null, data);
-            }
-        });
+            params.id
+            , function (err, data) {
+                if (err) {
+                    cb(err);
+                } else {
+                    cb(null, data);
+                }
+            });
     }
 
     Ozanorder.remoteMethod(
@@ -240,13 +241,115 @@ module.exports = function (Ozanorder) {
         });
     }
 
+    /***
+ * Donwload PDF
+ */
+
+    Ozanorder.remoteMethod(
+        'download',
+        {
+            isStatic: true,
+            accepts: [
+                { arg: 'id', type: 'string', required: true }
+            ],
+            returns: [
+                { arg: 'body', type: 'file', root: true },
+                { arg: 'Content-Type', type: 'string', http: { target: 'header' } }
+            ],
+            http: { path: '/:id/download', verb: 'get' }
+        }
+    );
+
+    Ozanorder.download = function download(userId, cb) {
+        var reader = fs.createReadStream(__dirname + '/../document.pdf');
+        cb(null, reader, 'application/pdf');
+    };
 
 
+    /***
+* Get Report DP
+*/
 
+    Ozanorder.remoteMethod(
+        'getreportDP', {
+            accepts: [{
+                arg: 'params',
+                type: 'Object',
+                required: true,
+                http: { source: 'body' }
+            }, {
+                arg: "options",
+                type: "object",
+                http: "optionsFromRequest"
+            }],
+            returns: {
+                arg: 'getreportDP', type: 'array', root: true
+            },
+            http: {
+                path: '/getreportDP',
+                verb: 'post'
+            }
+        });
 
+    Ozanorder.getreportDP = function (params, options, cb) {
+        console.log(params, 'Data');
+        Ozanorder.find({
+            where: {
+                status: params.statusDP
+            }
+        }, function (err, data) {
+            if (err) {
+                cb(err);
+            } else {
+                cb(null, data);
+            }
+        });
+    }
 
+    /***
+* Get Report Full Payment
+*/
 
+    Ozanorder.remoteMethod(
+        'getreportFP', {
+            accepts: [{
+                arg: 'params',
+                type: 'Object',
+                required: true,
+                http: { source: 'body' }
+            }, {
+                arg: "options",
+                type: "object",
+                http: "optionsFromRequest"
+            }],
+            returns: {
+                arg: 'getreportFP', type: 'array', root: true
+            },
+            http: {
+                path: '/getreportFP',
+                verb: 'post'
+            }
+        });
 
-
-
+    Ozanorder.getreportFP = function (params, options, cb) {
+        console.log(params, 'Data');
+        Ozanorder.find({
+            where: {
+                status: params.statusFP
+            }
+        }, function (err, data) {
+            if (err) {
+                cb(err);
+            } else {
+                cb(null, data);
+            }
+        });
+    }
 };
+
+
+
+
+
+
+

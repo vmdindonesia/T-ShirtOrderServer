@@ -25,6 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `AccessToken`
+--
+
+--
 -- Struktur dari tabel `OzanLibrary`
 --
 
@@ -167,6 +171,8 @@ INSERT INTO `OzanUserCredential` (`id`, `realm`, `address`, `phoneNumber`, `jobP
 (4, 'Management', 'Jakarta', 2147483647, 'Manager', 'PT. Putra Sukses Gemilang', 2147483647, 'psg@gmail.com', 'management', '$2a$10$8ldqPrK0EprTzglt8lpkCeqPXyiEwaplKwlrlv5T5npRZPlbvOv36', 'management@gmail.com', 'true', 'management', ''),
 (5, 'Admin', 'Jakarta', 2147483647, 'Admin', 'PT. Putera Sukses Gemilang', 2147483647, 'admin@gmail.com', 'admin', '$2a$10$PYEU1RqCwUQgcCkIMUzMk.Mt30IMyAfaZX1MoNUr7sCVlxeTBZWJi', 'admin@gmail.com', 'true', 'admin', '');
 
+-- --------------------------------------------------------
+
 --
 -- Indexes for table `OzanLibrary`
 --
@@ -226,6 +232,7 @@ ALTER TABLE `OzanOrderProduct`
 --
 ALTER TABLE `OzanUserCredential`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
