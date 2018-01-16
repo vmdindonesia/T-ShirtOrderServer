@@ -74,14 +74,30 @@
       },
       "_selectable": false
     },
-    "unitprice": {
+    "amount": {
       "type": "Number",
       "required": false,
       "length": null,
       "precision": 12,
       "scale": null,
       "mysql": {
-        "columnName": "unitPrice",
+        "columnName": "amount",
+        "dataType": "float",
+        "dataLength": null,
+        "dataPrecision": 12,
+        "dataScale": null,
+        "nullable": "N"
+      },
+      "_selectable": false
+    },
+    "totalamount": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 12,
+      "scale": null,
+      "mysql": {
+        "columnName": "totalamount",
         "dataType": "float",
         "dataLength": null,
         "dataPrecision": 12,

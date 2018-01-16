@@ -170,38 +170,6 @@
       },
       "_selectable": false
     },
-    "amount": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": 12,
-      "scale": null,
-      "mysql": {
-        "columnName": "amount",
-        "dataType": "float",
-        "dataLength": null,
-        "dataPrecision": 12,
-        "dataScale": null,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
-    "totalamount": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": 12,
-      "scale": null,
-      "mysql": {
-        "columnName": "totalAmount",
-        "dataType": "float",
-        "dataLength": null,
-        "dataPrecision": 12,
-        "dataScale": null,
-        "nullable": "N"
-      },
-      "_selectable": false
-    },
     "confirmto": {
       "type": "String",
       "required": false,

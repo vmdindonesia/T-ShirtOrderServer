@@ -29,20 +29,21 @@ module.exports = function (Ozanorderproduct) {
             }
         });
 
+    /**
+     * Create Data Order
+     */
     Ozanorderproduct.ozanProduct = function (params, options, cb) {
-        console.log(params, 'DATA PRODUK');
-        var idorder = params.idorder
-        var descriptionorder = params.describe
-        var sizeorder = params.size
-        var qtyorder = params.quantyorder
-        var unitprice = params.unit
-        Ozanorderproduct.create({
-            idorder,
-            descriptionorder,
-            sizeorder,
-            qtyorder,
-            unitprice
-        }, function (err, dataGet) {
+        const Data = {
+            idorder: params.idorder,
+            descriptionorder: params.describe,
+            sizeorder: params.size,
+            qtyorder: params.quantyorder,
+            amount: params.amount,
+            totalamount: params.totalamount
+        }
+        console.log(Data, 'DATA PRODUK');
+
+        Ozanorderproduct.create(Data, function (err, dataGet) {
             if (err) {
                 cb(err);
                 console.log(err, 'Errornya');
@@ -52,6 +53,10 @@ module.exports = function (Ozanorderproduct) {
         });
     }
 
+
+    /**
+     * Create Detail Product
+     */
     Ozanorderproduct.remoteMethod(
         'lookingdetailorderproduct', {
             accepts: [{
