@@ -42,6 +42,22 @@
       },
       "_selectable": false
     },
+    "typeimg": {
+      "type": "String",
+      "required": false,
+      "length": 15,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "typeimg",
+        "dataType": "varchar",
+        "dataLength": 15,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      },
+      "_selectable": false
+    },
     "id": {
       "type": "Number",
       "id": true,
@@ -59,7 +75,7 @@
       },
       "_selectable": false
     }
-  },
+  },  
   "validations": [],
   "relations": {},
   "acls": [],

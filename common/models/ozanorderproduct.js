@@ -32,10 +32,10 @@ module.exports = function (Ozanorderproduct) {
     Ozanorderproduct.ozanProduct = function (params, options, cb) {
         console.log(params, 'DATA PRODUK');
         var idorder = params.idorder
-        var descriptionorder = params.descriptionorder
-        var sizeorder = params.sizeorder
-        var qtyorder = params.qtyorder
-        var unitprice = params.unitprice
+        var descriptionorder = params.describe
+        var sizeorder = params.size
+        var qtyorder = params.quantyorder
+        var unitprice = params.unit
         Ozanorderproduct.create({
             idorder,
             descriptionorder,

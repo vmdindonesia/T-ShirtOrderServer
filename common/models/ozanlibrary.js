@@ -33,9 +33,11 @@ module.exports = function (Ozanlibrary) {
         console.log(params, 'Params');
         var idorder = params.idorder
         var namefile = params.namefile
+        var typeimg = params.typeimg
         Ozanlibrary.create({
             idorder,
-            namefile
+            namefile,
+            typeimg
         }, function (err, dataGet) {
             if (err) {
                 cb(err);
@@ -74,8 +76,8 @@ module.exports = function (Ozanlibrary) {
     Ozanlibrary.lookingimageorder = function (params, options, cb) {
         console.log(params, 'Params');
         Ozanlibrary.find({
-            where : {
-                idorder : params.id
+            where: {
+                idorder: params.id
             }
         }, function (err, dataGet) {
             if (err) {
@@ -86,4 +88,47 @@ module.exports = function (Ozanlibrary) {
             }
         });
     }
+
+
+
+    Ozanlibrary.remoteMethod(
+        'getphotodp', {
+            accepts: [{
+                arg: 'params',
+                type: 'Object',
+                required: true,
+                http: { source: 'body' }
+            }, {
+                arg: "options",
+                type: "object",
+                http: "optionsFromRequest"
+            }],
+            returns: {
+                arg: 'getphotodp', type: 'array', root: true
+            },
+            http: {
+                path: '/getphotodp',
+                verb: 'post'
+            }
+        });
+
+    Ozanlibrary.getphotodp = function (params, options, cb) {
+        console.log(params, 'Params');
+        Ozanlibrary.find({
+            where: {
+                idorder: params.id,
+                typeimg : params.typeimg
+            }
+        }, function (err, dataGet) {
+            if (err) {
+                cb(err);
+                console.log(err, 'Errornya');
+            } else {
+                cb(null, dataGet);
+            }
+        });
+    }
+
+
+
 };
