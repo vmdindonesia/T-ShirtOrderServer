@@ -72,7 +72,7 @@ module.exports = function (Ozanorder) {
      * function get data
      */
     Ozanorder.remoteMethod(
-        'ozangetBuying', {
+        'getorderdetail', {
             accepts: [{
                 arg: 'params',
                 type: 'Object',
@@ -84,32 +84,66 @@ module.exports = function (Ozanorder) {
                 http: "optionsFromRequest"
             }],
             returns: {
-                arg: 'ozangetBuying', type: 'array', root: true
+                arg: 'getorderdetail', type: 'array', root: true
             },
             http: {
-                path: '/ozangetBuying',
-                verb: 'get'
+                path: '/getorderdetail',
+                verb: 'post'
             }
         });
 
-
-    Ozanorder.ozangetBuying = function (params, options, cb) {
-        console.log(params.userid, 'Params');
-        Ozanorder.find(
-            {
-                where:
-                    {
-                        userid: params.userid
-                    }
-            }, function (err, dataGet) {
+    Ozanorder.getorderdetail = function (params, options, cb) {
+        console.log(params, 'User Id');
+        Ozanorder.find({
+            where : {
+                id : params.id,
+               userid : params.userid
+            }
+        }
+            , function (err, data) {
                 if (err) {
                     cb(err);
-                    console.log(err, 'Errornya');
                 } else {
-                    cb(null, dataGet);
+                    cb(null, data);
                 }
             });
     }
+
+    // Ozanorder.remoteMethod(
+    //     'ozangetBuying', {
+    //         accepts: [{
+    //             arg: 'params',
+    //             type: 'Object',
+    //             required: true,
+    //             http: { source: 'body' }
+    //         }, {
+    //             arg: "options",
+    //             type: "object",
+    //             http: "optionsFromRequest"
+    //         }],
+    //         returns: {
+    //             arg: 'ozangetBuying', type: 'array', root: true
+    //         },
+    //         http: {
+    //             path: '/ozangetBuying',
+    //             verb: 'get'
+    //         }
+    //     });
+
+
+    // Ozanorder.ozangetBuying = function (params, options, cb) {
+    //     console.log(params.userid, 'Get User Id');
+    //     Ozanorder.findById(
+    //                  params.userid        
+    //         , function (err, dataGet) {
+    //             if (err) {
+    //                 cb(err);
+    //                 console.log(err, 'Errornya');
+    //             } else {
+    //                 cb(null, dataGet);
+    //             }
+    //         });
+    // }
 
     Ozanorder.remoteMethod(
         'lookingdetailorder', {
