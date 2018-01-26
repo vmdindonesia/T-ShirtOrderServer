@@ -95,9 +95,9 @@ module.exports = function (Ozanorder) {
     Ozanorder.getorderdetail = function (params, options, cb) {
         console.log(params, 'User Id');
         Ozanorder.find({
-            where : {
-                id : params.id,
-               userid : params.userid
+            where: {
+                id: params.id,
+                userid: params.userid
             }
         }
             , function (err, data) {
@@ -379,6 +379,45 @@ module.exports = function (Ozanorder) {
             }
         });
     }
+
+
+
+    /**
+     * Manage Order
+     */
+    Ozanorder.remoteMethod(
+        'manageorder', {
+            accepts: [{
+                arg: 'params',
+                type: 'Object',
+                required: true,
+                http: { source: 'body' }
+            }, {
+                arg: "options",
+                type: "object",
+                http: "optionsFromRequest"
+            }],
+            returns: {
+                arg: 'manageorder', type: 'array', root: true
+            },
+            http: {
+                path: '/manageorder',
+                verb: 'post'
+            }
+        });
+
+    Ozanorder.manageorder = function (params, options, cb) {
+        console.log(params, 'id');
+        Ozanorder.find({}
+            , function (err, data) {
+                if (err) {
+                    cb(err);
+                } else {
+                    cb(null, data);
+                }
+            });
+    }
+
 };
 
 
