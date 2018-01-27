@@ -42,16 +42,16 @@
       },
       "_selectable": false
     },
-    "typeimg": {
+    "flag": {
       "type": "String",
       "required": false,
-      "length": 15,
+      "length": 50,
       "precision": null,
       "scale": null,
       "mysql": {
-        "columnName": "typeimg",
+        "columnName": "flag",
         "dataType": "varchar",
-        "dataLength": 15,
+        "dataLength": 50,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "N"

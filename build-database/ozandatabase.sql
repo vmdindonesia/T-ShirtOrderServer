@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 20 Des 2017 pada 16.59
+-- Generation Time: 26 Jan 2018 pada 05.11
 -- Versi Server: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -28,6 +28,41 @@ SET time_zone = "+00:00";
 -- Struktur dari tabel `AccessToken`
 --
 
+CREATE TABLE `AccessToken` (
+  `id` varchar(255) NOT NULL,
+  `ttl` int(11) DEFAULT NULL,
+  `scopes` text,
+  `created` datetime DEFAULT NULL,
+  `userId` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `AccessToken`
+--
+
+INSERT INTO `AccessToken` (`id`, `ttl`, `scopes`, `created`, `userId`) VALUES
+('PK06MOMjkayDBYP50nw7SzSX40s1OpCDwcA3ftWnejZc1lYXOy6yHLlPtJojEXXh', 1209600, NULL, '2018-01-25 15:19:09', 5),
+('PwpjYhyK4eAIAHL519Jx9AwQ1hZaeSt5S8lnQMTmfhbLpz9xZlik08h0NnMWcSSX', 1209600, NULL, '2017-12-21 07:32:31', 3),
+('rUI2jQtRDRFq6EBZwthOwWWckualOgNU9XjLBe30twNmWaFgi821TzzpFcUQAefH', 1209600, NULL, '2018-01-25 16:50:21', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `ACL`
+--
+
+CREATE TABLE `ACL` (
+  `id` int(11) NOT NULL,
+  `model` varchar(512) DEFAULT NULL,
+  `property` varchar(512) DEFAULT NULL,
+  `accessType` varchar(512) DEFAULT NULL,
+  `permission` varchar(512) DEFAULT NULL,
+  `principalType` varchar(512) DEFAULT NULL,
+  `principalId` varchar(512) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
 --
 -- Struktur dari tabel `OzanLibrary`
 --
@@ -35,16 +70,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `OzanLibrary` (
   `id` int(11) NOT NULL,
   `idOrder` int(11) NOT NULL,
-  `nameFile` varchar(50) NOT NULL
+  `nameFile` varchar(50) NOT NULL,
+  `flag` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `OzanLibrary`
 --
 
-INSERT INTO `OzanLibrary` (`id`, `idOrder`, `nameFile`) VALUES
-(10, 8, 'IMG_9c707896-fe9d-d1ce-59dc-7bd1c0fcc176.jpg'),
-(11, 8, 'IMG_9a65c7c8-ec87-8c4d-999e-af0216211721.jpg');
+INSERT INTO `OzanLibrary` (`id`, `idOrder`, `nameFile`, `flag`) VALUES
+(34, 48, 'IMG_b1c323ca-8a5f-ce4e-1d4b-e126adc192a6.jpg', 'foto-product'),
+(35, 48, 'IMG_b2134db9-c127-808a-5113-bd88fc3e5cf7.jpg', 'foto-product');
 
 -- --------------------------------------------------------
 
@@ -72,8 +108,7 @@ INSERT INTO `OzanMenuList` (`id`, `title`, `component`, `icons`, `roleUser`) VAL
 (5, 'History Order', 'OrderdetailPage', 'md-list-box', 'user'),
 (6, 'Report Order', 'ReportorderPage', 'md-print', 'management'),
 (7, 'Manage Order', 'ManageOrderPage', 'md-clock', 'admin'),
-(8, 'Member', 'MemberListPage', 'md-list-box', 'admin'),
-(9, 'Status Order', 'StatusOrderPage', 'md-print', 'management');
+(8, 'Member', 'MemberListPage', 'md-list-box', 'admin');
 
 -- --------------------------------------------------------
 
@@ -93,8 +128,6 @@ CREATE TABLE `OzanOrder` (
   `vendorName` varchar(50) NOT NULL,
   `trackingNo` varchar(20) NOT NULL,
   `deliveryDate` datetime NOT NULL,
-  `amount` float NOT NULL,
-  `totalAmount` float NOT NULL,
   `confirmTo` varchar(50) NOT NULL,
   `productionStatus` tinyint(1) NOT NULL,
   `status` tinyint(1) NOT NULL
@@ -104,15 +137,8 @@ CREATE TABLE `OzanOrder` (
 -- Dumping data untuk tabel `OzanOrder`
 --
 
-INSERT INTO `OzanOrder` (`id`, `userId`, `orderDate`, `buyerName`, `companyName`, `address`, `shippedTo`, `invoiceTo`, `vendorName`, `trackingNo`, `deliveryDate`, `amount`, `totalAmount`, `confirmTo`, `productionStatus`, `status`) VALUES
-(8, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'asd', 'asd', 'asd', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1),
-(9, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'hbhh', 'hhhh', 'hhh', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1),
-(10, 0, '0000-00-00 00:00:00', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '', 0, 0),
-(11, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'ok', 'oko', 'kok', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1),
-(12, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'ppp', 'ppp', 'ppp', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1),
-(13, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'kk', 'kk', 'kkk', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1),
-(14, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'yyy', 'yy', 'yy', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1),
-(15, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'iji', 'ji', 'jiji', '', '', '', '0000-00-00 00:00:00', 0, 0, '-', 1, 1);
+INSERT INTO `OzanOrder` (`id`, `userId`, `orderDate`, `buyerName`, `companyName`, `address`, `shippedTo`, `invoiceTo`, `vendorName`, `trackingNo`, `deliveryDate`, `confirmTo`, `productionStatus`, `status`) VALUES
+(48, 3, '0000-00-00 00:00:00', 'Muhammad Fauzan', 'PT. Putra Sukses Gemilang', 'Jakarta', 'Jakarta', '-', '-', '-', '0000-00-00 00:00:00', '-', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -126,18 +152,17 @@ CREATE TABLE `OzanOrderProduct` (
   `descriptionOrder` varchar(225) NOT NULL,
   `sizeOrder` varchar(5) NOT NULL,
   `qtyOrder` int(11) NOT NULL,
-  `unitPrice` float NOT NULL
+  `amount` float NOT NULL,
+  `totalAmount` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `OzanOrderProduct`
 --
 
-INSERT INTO `OzanOrderProduct` (`id`, `idOrder`, `descriptionOrder`, `sizeOrder`, `qtyOrder`, `unitPrice`) VALUES
-(12, 8, 'asd', '', 123, 123),
-(13, 8, 'asd', '', 123, 123),
-(14, 0, 'yyy', '', 88, 88),
-(15, 0, 'ii', '', 999, 99);
+INSERT INTO `OzanOrderProduct` (`id`, `idOrder`, `descriptionOrder`, `sizeOrder`, `qtyOrder`, `amount`, `totalAmount`) VALUES
+(38, 48, 'Seragam Pria', 'S', 123, 15000, 1845000),
+(39, 48, 'Celana Pria', 'XL', 123, 10000, 1230000);
 
 -- --------------------------------------------------------
 
@@ -174,6 +199,63 @@ INSERT INTO `OzanUserCredential` (`id`, `realm`, `address`, `phoneNumber`, `jobP
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `Role`
+--
+
+CREATE TABLE `Role` (
+  `id` int(11) NOT NULL,
+  `name` varchar(512) NOT NULL,
+  `description` varchar(512) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `RoleMapping`
+--
+
+CREATE TABLE `RoleMapping` (
+  `id` int(11) NOT NULL,
+  `principalType` varchar(512) DEFAULT NULL,
+  `principalId` varchar(255) DEFAULT NULL,
+  `roleId` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `User`
+--
+
+CREATE TABLE `User` (
+  `id` int(11) NOT NULL,
+  `realm` varchar(512) DEFAULT NULL,
+  `username` varchar(512) DEFAULT NULL,
+  `password` varchar(512) NOT NULL,
+  `email` varchar(512) NOT NULL,
+  `emailVerified` tinyint(1) DEFAULT NULL,
+  `verificationToken` varchar(512) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `AccessToken`
+--
+ALTER TABLE `AccessToken`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ACL`
+--
+ALTER TABLE `ACL`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `OzanLibrary`
 --
 ALTER TABLE `OzanLibrary`
@@ -204,28 +286,57 @@ ALTER TABLE `OzanUserCredential`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `Role`
+--
+ALTER TABLE `Role`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `RoleMapping`
+--
+ALTER TABLE `RoleMapping`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `principalId` (`principalId`);
+
+--
+-- Indexes for table `User`
+--
+ALTER TABLE `User`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `ACL`
+--
+ALTER TABLE `ACL`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `OzanLibrary`
 --
 ALTER TABLE `OzanLibrary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `OzanMenuList`
 --
 ALTER TABLE `OzanMenuList`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `OzanOrder`
 --
 ALTER TABLE `OzanOrder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `OzanOrderProduct`
 --
 ALTER TABLE `OzanOrderProduct`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `OzanUserCredential`
@@ -233,6 +344,24 @@ ALTER TABLE `OzanOrderProduct`
 ALTER TABLE `OzanUserCredential`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
+--
+-- AUTO_INCREMENT for table `Role`
+--
+ALTER TABLE `Role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `RoleMapping`
+--
+ALTER TABLE `RoleMapping`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `User`
+--
+ALTER TABLE `User`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
