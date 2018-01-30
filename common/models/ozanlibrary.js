@@ -34,10 +34,12 @@ module.exports = function (Ozanlibrary) {
         var idorder = params.idorder
         var namefile = params.namefile
         var typeimg = params.typeimg
+        var flag = params.flag
         Ozanlibrary.create({
             idorder,
             namefile,
-            typeimg
+            typeimg,
+            flag
         }, function (err, dataGet) {
             if (err) {
                 cb(err);
@@ -117,7 +119,7 @@ module.exports = function (Ozanlibrary) {
         Ozanlibrary.find({
             where: {
                 idorder: params.id,
-                typeimg : params.typeimg
+                typeimg: params.typeimg
             }
         }, function (err, dataGet) {
             if (err) {

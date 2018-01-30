@@ -8,7 +8,7 @@
     "name": "ozanStorage",
     "connector": "loopback-component-storage",
     "provider": "filesystem",
-    "root": "./storage"
+    "root": "./server/storage"
   },
   "ozanDB": {
     "host": "localhost",
