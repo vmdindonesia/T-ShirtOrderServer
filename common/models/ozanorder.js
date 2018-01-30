@@ -108,6 +108,41 @@ module.exports = function (Ozanorder) {
                 }
             });
     }
+    /**
+     * function get data
+     */
+    Ozanorder.remoteMethod(
+        'manageorder', {
+            accepts: [{
+                arg: 'params',
+                type: 'Object',
+                required: true,
+                http: { source: 'body' }
+            }, {
+                arg: "options",
+                type: "object",
+                http: "optionsFromRequest"
+            }],
+            returns: {
+                arg: 'manageorder', type: 'array', root: true
+            },
+            http: {
+                path: '/manageorder',
+                verb: 'post'
+            }
+        });
+
+    Ozanorder.manageorder = function (params, options, cb) {
+        console.log(params, 'id');
+        Ozanorder.find({}
+            , function (err, data) {
+                if (err) {
+                    cb(err);
+                } else {
+                    cb(null, data);
+                }
+            });
+    }
 
     // Ozanorder.remoteMethod(
     //     'ozangetBuying', {
