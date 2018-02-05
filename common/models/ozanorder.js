@@ -268,7 +268,7 @@ module.exports = function (Ozanorder) {
 
     Ozanorder.updatedataorder = function (params, cb) {
         console.log(params, 'DATA BUYING');
-
+        var id = params.id
         var userid = params.userid
         var buyername = params.buyername
         var companyname = params.companyname
@@ -284,7 +284,7 @@ module.exports = function (Ozanorder) {
         var productionstatus = params.productionstatus
         var status = params.status
 
-        Ozanorder.updateAll({
+        Ozanorder.updateAll({ id: id }, {
             userid,
             buyername,
             companyname,
